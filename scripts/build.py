@@ -1,31 +1,40 @@
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DOMAINS = ROOT / "domains"
-GENERATED = ROOT / "generated"
+BASE = Path(__file__).resolve().parent.parent
 
-GENERATED.mkdir(exist_ok=True)
+domains_dir = BASE / "domains"
+generated = BASE / "generated"
 
-exclude = {"direct.txt"}
-proxy_domains = []
+generated.mkdir(exist_ok=True)
 
-for file in sorted(DOMAINS.glob("*.txt")):
-    if file.name in exclude:
-        continue
+all_domains = set()
 
-    for line in file.read_text(encoding="utf-8").splitlines():
+for f in sorted(domains_dir.glob("*.txt")):
+    domains = []
+
+    for line in f.read_text().splitlines():
         line = line.strip()
 
-        if not line or line.startswith("#"):
+        if not line:
             continue
 
-        proxy_domains.append(line)
+        if line.startswith("#"):
+            continue
 
-proxy_domains = sorted(set(proxy_domains))
+        domains.append(line)
 
-(GENERATED / "proxy.txt").write_text(
-    "\n".join(proxy_domains) + "\n",
-    encoding="utf-8"
+    domains = sorted(set(domains))
+
+    (generated / f.name).write_text(
+        "\n".join(domains) + "\n"
+    )
+
+    all_domains.update(domains)
+
+proxy = sorted(all_domains)
+
+(generated / "proxy.txt").write_text(
+    "\n".join(proxy) + "\n"
 )
 
-print(f"Generated {len(proxy_domains)} domains -> generated/proxy.txt")
+print(f"Generated {len(proxy)} domains.")

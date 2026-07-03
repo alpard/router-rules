@@ -1,0 +1,17 @@
+notion.so
+www.notion.so
+notion.com
+www.notion.com
+app.notion.com
+api.notion.com
+calendar.notion.so
+identity.notion.so
+identity.notion.com
+msgstore.www.notion.so
+file.notion.so
+file.notion.com
+img.notionusercontent.com
+artifact.notionusercontent.com
+notionusercontent.com
+secure.notion-static.com
+prod-files-secure.s3.us-west-2.amazonaws.com

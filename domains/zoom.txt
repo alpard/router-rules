@@ -1,0 +1,4 @@
+zoom.us
+zoom.com
+www.zoom.com
+zoomcdn.com

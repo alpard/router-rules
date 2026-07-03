@@ -1,0 +1,3 @@
+cloudflareaccess.com
+challenges.cloudflare.com
+hcaptcha.com

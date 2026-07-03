@@ -7,7 +7,11 @@ ggpht.com
 gvt1.com
 gvt2.com
 gvt3.com
-youtubei.googleapis.com
-youtube.googleapis.com
 yt3.ggpht.com
+yt4.ggpht.com
+yt5.ggpht.com
+yt6.ggpht.com
+youtube.googleapis.com
+youtubei.googleapis.com
 jnn-pa.googleapis.com
+googleusercontent.com
