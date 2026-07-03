@@ -1,0 +1,4 @@
+api.ipify.org
+api64.ipify.org
+ifconfig.me
+icanhazip.com
