@@ -11,9 +11,13 @@ download() {
   name="$1"
   wget -q -O "$TMP/$name.txt" "$BASE/$name.txt"
 
-  if [ ! -s "$TMP/$name.txt" ]; then
+  if [ ! -f "$TMP/$name.txt" ]; then
     echo "ERROR: failed to download $name.txt"
     exit 1
+  fi
+
+  if [ ! -s "$TMP/$name.txt" ]; then
+    echo "WARN: $name.txt is empty"
   fi
 }
 
