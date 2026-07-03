@@ -1,0 +1,14 @@
+chatgpt.com
+openai.com
+auth.openai.com
+auth0.openai.com
+api.openai.com
+ios.chat.openai.com
+android.chat.openai.com
+desktop.chat.openai.com
+ab.chatgpt.com
+events.chatgpt.com
+ws.chatgpt.com
+oaistatic.com
+oaiusercontent.com
+files.oaiusercontent.com
