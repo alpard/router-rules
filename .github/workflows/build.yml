@@ -1,0 +1,38 @@
+name: Build Router Rules
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build
+        run: |
+          python scripts/build.py
+
+      - name: Commit generated files
+        run: |
+          if git diff --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+
+          git config user.name "router-rules-bot"
+          git config user.email "actions@github.com"
+
+          git add generated
+          git commit -m "Auto build generated rules"
+          git push
