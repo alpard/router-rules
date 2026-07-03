@@ -1,5 +1,0 @@
-ai.google.dev
-aistudio.google.com
-gemini.google.com
-generativelanguage.googleapis.com
-makeruite.google.com

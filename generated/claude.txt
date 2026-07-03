@@ -1,7 +1,0 @@
-anthropic.com
-api.anthropic.com
-claude.ai
-claude.com
-console.anthropic.com
-www.claude.ai
-www.claude.com

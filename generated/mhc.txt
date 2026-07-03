@@ -1,2 +1,0 @@
-mhc-dashboard.pages.dev
-pages.dev
