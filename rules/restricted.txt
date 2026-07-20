@@ -1,0 +1,22 @@
+# Stripe
+stripe.com
+www.stripe.com
+buy.stripe.com
+js.stripe.com
+m.stripe.network
+api.stripe.com
+dashboard.stripe.com
+billing.stripe.com
+files.stripe.com
+hooks.stripe.com
+
+# Xerox
+xerox.com
+www.xerox.com
+support.xerox.com
+download.support.xerox.com
+
+# Incy
+incy.com
+www.incy.com
+app.incy.com
