@@ -20,3 +20,11 @@ download.support.xerox.com
 incy.com
 www.incy.com
 app.incy.com
+
+# Kazakhstan PKI
+pki.gov.kz
+www.pki.gov.kz
+
+# Kazakhstan eGov
+egov.kz
+www.egov.kz
