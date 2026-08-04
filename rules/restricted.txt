@@ -28,3 +28,14 @@ www.pki.gov.kz
 # Kazakhstan eGov
 egov.kz
 www.egov.kz
+
+# Kazakhstan Government
+gov.kz
+www.gov.kz
+egov.kz
+www.egov.kz
+
+# Kazakhstan PKI
+pki.gov.kz
+www.pki.gov.kz
+nca.pki.gov.kz
