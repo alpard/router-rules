@@ -2,7 +2,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
 
-domains_dir = BASE / "domains"
+domains_dir = BASE / "rules"
 generated = BASE / "generated"
 
 generated.mkdir(exist_ok=True)
