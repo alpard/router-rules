@@ -10,7 +10,6 @@ SECTION="zeroblock.theforceful.user_domains_text"
 URL="https://raw.githubusercontent.com/alpard/router-rules/main/rules/notion.txt"
 TMP="$(mktemp /tmp/zeroblock-notion.XXXXXX)"
 BACKUP=""
-CHANGED=0
 cleanup() { rm -f "$TMP"; }
 trap cleanup EXIT HUP INT TERM
 
@@ -38,9 +37,24 @@ grep -qx 'notion-emojis.s3-us-west-2.amazonaws.com' "$TMP" || {
   echo "ERROR: required known-good hostname missing" >&2; exit 1;
 }
 
+# ZeroBlock maps this UCI list to sing-box domain_suffix rules.
+# A parent suffix (notion.com) covers subdomains (api.notion.com).
+# Unrelated asset hosts still require explicit entries.
 CURRENT="$(uci -q get "$SECTION" 2>/dev/null || true)"
 MISSING="$(awk 'NF && $0 !~ /^#/ {print}' "$TMP" | sort -u | while IFS= read -r domain; do
-  case " $CURRENT " in *" $domain "*) ;; *) printf '%s\n' "$domain";; esac
+  covered=0
+  for existing in $CURRENT; do
+    case "$existing" in
+      full:*) [ "${existing#full:}" = "$domain" ] && covered=1 ;;
+      *)
+        case "$domain" in
+          "$existing"|*."$existing") covered=1 ;;
+        esac
+        ;;
+    esac
+    [ "$covered" -eq 1 ] && break
+  done
+  [ "$covered" -eq 1 ] || printf '%s\\n' "$domain"
 done)"
 if [ -z "$MISSING" ]; then echo "OK: Notion domains already present; no restart"; exit 0; fi
 echo "Missing domains to ADD (existing entries remain untouched):"
@@ -57,7 +71,6 @@ printf '%s\n' "$MISSING" | while IFS= read -r domain; do
   [ -n "$domain" ] && uci add_list "$SECTION=$domain"
 done
 uci commit zeroblock
-CHANGED=1
 
 # Restart can interrupt SSH. The backup remains available for manual recovery.
 if ! /etc/init.d/zeroblock restart; then
