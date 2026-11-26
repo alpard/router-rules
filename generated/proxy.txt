@@ -66,6 +66,7 @@ m.stripe.network
 makeruite.google.com
 messenger.com
 mhc-dashboard.pages.dev
+miro.com
 msgstore.www.notion.so
 nca.pki.gov.kz
 notion-0-68ad571cf79e9e82.elb.us-east-1.amazonaws.com

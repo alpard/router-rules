@@ -9,6 +9,7 @@ http-inputs-notion.splunkcloud.com
 identity.notion.com
 identity.notion.so
 img.notionusercontent.com
+miro.com
 msgstore.www.notion.so
 notion-0-68ad571cf79e9e82.elb.us-east-1.amazonaws.com
 notion-emojis.s3-us-west-2.amazonaws.com
